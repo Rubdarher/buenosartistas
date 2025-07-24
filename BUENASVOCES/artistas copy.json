@@ -1,0 +1,231 @@
+
+
+[
+
+  {
+    "nombre_artistico": "Addele",
+    "nombres": "Adele",
+    "apellido": "Adkins",
+    "email": "adele@musica.com",
+    "telefono": "+5491122334455",
+    "ciudad": "Londres",
+    "provincia": "Inglaterra",
+    "solista": true,
+    "usa_pista": true,
+    "tiene_sonido": true,
+    "trayectoria": "Ganadora de premios Grammy, reconocida mundialmente.",
+     "anio_inicio": 2006,
+
+    "estilos": ["Pop", "Soul", "Jazz", "Balada", "Todos"],
+     
+    "imagenes": {
+      "principal": "img/adde001.jpg",
+      "galeria": [
+        "img/adde001.jpg",
+        "img/adde002.jpg",
+        "img/adde003.jpg"
+      ]
+    },
+    "video_principal": "https://www.youtube.com/embed/DDWKuo3gXMQ",
+    "videos_extra": [],
+    "beneficios": ["Evento solidario", "Fundación"],
+    "imitaciones": { "realiza": false, "a_quien": "" },
+    "sponsors_tipo3": ["img/spon001.png", "img/spon002.png"],
+     
+    "redes":{
+    "instagram": {
+      "url": "https://instagram.com/juanes",
+      "mostrar": true
+    },
+    "facebook": {
+      "url": "https://facebook.com/juanes",
+      "mostrar": true
+    },
+    "youtube": {
+      "url": "https://youtube.com/juanes",
+      "mostrar": true
+    },
+    "web": {
+      "url": "https://juanes.net",
+      "mostrar": true
+    },
+    "whatsapp": {
+      "url": "https://wa.me/573001234567",
+      "mostrar": false
+    },
+    "tikTok": {
+      "url": "",
+      "mostrar": false
+    }
+  }
+
+  },
+
+
+  {
+    "nombre_artistico": "Juanes",
+    "nombres": "Juan Esteban",
+    "apellido": "Aristizábal Vásquez",
+    "email": "juanes@musica.com",
+    "telefono": "+573001112233",
+    "ciudad": "Medellín",
+    "provincia": "Antioquia",
+    "solista": true,
+    "usa_pista": false,
+    "tiene_sonido": true,"trayectoria": "Ganadora de premios Grammy, reconocido mundialmente.",
+     "anio_inicio": 2001,
+
+    "estilos": ["Rock", "Pop Latino", "Fusión", "Balada"],
+    "imagenes": {
+      "principal": "img/juan001.jpg",
+      "galeria": [
+        "img/juan001.jpg",
+        "img/juan002.jpg",
+        "img/juan003.jpg"
+      ]
+    },
+    "video_principal": "https://www.youtube.com/embed/kRt2sRyup6A",
+    "videos_extra": ["https://www.youtube.com/embed/JvMXVHVr72A"],
+    "beneficios": ["Eventos benéficos", "Fundación Mi Sangre"],
+    "imitaciones": { "realiza": false, "a_quien": "" },
+    "sponsors_tipo3": ["img/spon010.png"],
+     
+    "redes": {
+      "instagram": {
+        "url": "https://instagram.com/juanes",
+        "mostrar": true
+      },
+      "facebook": {
+        "url": "https://facebook.com/juanes",
+        "mostrar": true
+      },
+      "youtube": {
+        "url": "https://youtube.com/juanes",
+        "mostrar": true
+      },
+      "web": {
+        "url": "https://juanes.net",
+        "mostrar": true
+      },
+      "whatsapp": {
+        "url": "https://wa.me/573001234567",
+        "mostrar": true
+      },
+      "tikTok": {
+        "url": "",
+        "mostrar": false
+      }
+    }
+  },
+  {
+    "nombre_artistico": "Shakira",
+    "nombres": "Shakira Isabel",
+    "apellido": "Mebarak Ripoll",
+    "email": "shakira@musica.com",
+    "telefono": "+573002224455",
+    "ciudad": "Barranquilla",
+    "provincia": "Atlántico",
+    "solista": true,
+    "usa_pista": false,
+    "tiene_sonido": true,
+    "trayectoria": "Ganadora de premios Grammy, reconocida mundialmente.",
+     "anio_inicio": 1995,
+
+    "estilos": ["Pop", "Rock", "Latino", "Dance"],
+    "imagenes": {
+      "principal": "img/shak001.jpg",
+      "galeria": [
+        "img/shak001.jpg",
+        "img/shak002.jpg",
+        "img/shak003.jpg"
+      ]
+    },
+    "video_principal": "https://www.youtube.com/embed/pRpeEdMmmQ0",
+    "videos_extra": ["https://www.youtube.com/embed/DUT5rEU6pqM"],
+    "beneficios": ["Fundación Pies Descalzos"],
+    "imitaciones": { "realiza": false, "a_quien": "" },
+    "sponsors_tipo3": ["img/spon020.png", "img/spon021.png"],
+     
+    "redes": {
+      "instagram": {
+        "url": "https://instagram.com/shakira",
+        "mostrar": true
+      },
+      "facebook": {
+        "url": "https://facebook.com/shakira",
+        "mostrar": true
+      },
+      "youtube": {
+        "url": "https://youtube.com/shakira",
+        "mostrar": true
+      },
+      "web": {
+        "url": "https://shakira.com",
+        "mostrar": true
+      },
+      "whatsapp": {
+        "url": "",
+        "mostrar": false
+      },
+      "tikTok": {
+        "url": "https://tiktok.com/@shakira",
+        "mostrar": true
+      }
+    }
+  },
+  {
+    "nombre_artistico": "DarioHer",
+    "nombres": "Dario",
+    "apellido": "Herrera",
+    "email": "darioher@musica.com",
+    "telefono": "+5493854990000",
+    "ciudad": "Santiago del Estero",
+    "provincia": "Santiago",
+    "solista": false,
+    "usa_pista": true,
+    "tiene_sonido": true,
+    "trayectoria": "Reconocido por escuelas, Canto en Bares locales.",
+     "anio_inicio": 2013,
+    "estilos": ["Cuarteto", "Cumbia", "Melódico", "Latino", "Ranchera"],
+    "imagenes": {
+      "principal": "img/dario001.jpg",
+      "galeria": [
+        "img/dario001.jpg",
+        "img/dario002.jpg",
+        "img/dario003.jpg"
+      ]
+    },
+    "video_principal": "https://www.youtube.com/embed/abcd1234xyz",
+    "videos_extra": [],
+    "beneficios": ["Eventos solidarios", "Actuaciones en escuelas"],
+    "imitaciones": { "realiza": true, "a_quien": "Sandro" },
+    "sponsors_tipo3": ["img/spon030.png"],
+     
+    "redes": {
+      "instagram": {
+        "url": "https://instagram.com/dariohermusica",
+        "mostrar": true
+      },
+      "facebook": {
+        "url": "https://facebook.com/dariohermusica",
+        "mostrar": true
+      },
+      "youtube": {
+        "url": "https://youtube.com/darioher",
+        "mostrar": true
+      },
+      "web": {
+        "url": "https://darioher.com.ar",
+        "mostrar": true
+      },
+      "whatsapp": {
+        "url": "https://wa.me/5493854990000",
+        "mostrar": true
+      },
+      "tikTok": {
+        "url": "https://tiktok.com/@dariohermusica",
+        "mostrar": true
+      }
+    }
+  }
+]

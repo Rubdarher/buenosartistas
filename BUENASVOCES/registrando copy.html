@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro de Artista - Buenas Voces Santiagueñas</title>
+  <link rel="stylesheet" href="Estilos.css" />
+</head>
+<body>
+
+  <main class="contenedor-registro">
+
+    <h1>Formulario de Registro de Artista</h1>
+
+    <form id="formRegistro" enctype="multipart/form-data">
+
+      <label for="nombre">Nombre (real):</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" required>
+
+      <label for="nombre_artistico">Nombre Artístico:</label>
+      <input type="text" id="nombre_artistico" name="nombre_artistico" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="telefono">Teléfono de contacto:</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="+54..." required>
+
+      <label for="ciudad">Ciudad:</label>
+      <input type="text" id="ciudad" name="ciudad" required>
+
+      <label for="provincia">Provincia:</label>
+      <input type="text" id="provincia" name="provincia" required>
+
+      <label for="trayectoria"> Escriba una breve trayectoria y/o experiencia:</label>
+      <textarea id="trayectoria" name="trayectoria" rows="3" required></textarea>
+
+      <label for="anio_inicio">Año de inicio:</label>
+      <input type="number" id="anio_inicio" name="anio_inicio" min="1900" max="2099" required>
+
+      <label for="solista">¿Es solista?</label>
+      <select id="solista" name="solista" required>
+        <option value="">Seleccione</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+
+      <label for="usa_pista">¿Usa pista?</label>
+      <select id="usa_pista" name="usa_pista" required>
+        <option value="">Seleccione</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+
+      <label for="tiene_sonido">¿Tiene sonido propio?</label>
+      <select id="tiene_sonido" name="tiene_sonido" required>
+        <option value="">Seleccione</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+
+          <label>¿Cantaría para un beneficio ad honorem?</label>
+      <div style="display: flex; gap: 15px; align-items: center; margin-top: 5px;">
+        <label><input type="radio" name="ad_honorem" value="Sí"> Sí</label>
+        <label><input type="radio" name="ad_honorem" value="No"> No</label>
+        <label><input type="radio" name="ad_honorem" value="Depende" id="radio_depende"> Depende</label>
+      </div>
+
+      <div id="depende_explicacion" style="display: none; margin-top: 10px;">
+        <label for="texto_depende">¿De qué depende?</label><br>
+        <input type="text" id="texto_depende" name="texto_depende" maxlength="50" style="width: 100%; max-width: 300px;">
+      </div>
+
+
+
+      <label>Estilos musicales (puede elegir varios):</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="estilo_todos"> <span class="texto-todos">TODOS</span></label><br>
+
+<label><input type="checkbox" class="genero" name="estilos" value="Tango"> Tango</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Folclore"> Folclore</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Rocknacional"> Rock nacional</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Cumbia"> Cumbia</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Cuarteto"> Cuarteto</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Chamamé"> Chamamé</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Génerosurbanos"> Géneros urbanos</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Popmovidos"> Pop movidos</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Internacionalsoft"> Intern. soft</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Internacionalmovidos"> Intern. movidos</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Melódicos"> Melódicos</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Delrecuerdo"> Del recuerdo</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Rancheras"> Rancheras</label>
+<label><input type="checkbox" class="genero" name="estilos" value="Bachysalsa"> Bachata/Salsa</label>
+
+      </div>
+
+      <label>¿Hacés imitaciones?</label>
+      <select id="imitaciones" name="imitaciones" required>
+        <option value="No">No</option>
+        <option value="Sí">Sí</option>
+      </select>
+
+      <label for="artista_imitado" id="label_imitado" style="display:none;">¿A quién imitás?</label>
+      <input type="text" id="artista_imitado" name="artista_imitado" style="display:none;" placeholder="Nombre del artista imitado">
+
+      <label for="videos_youtube">Links de videos de YouTube (separados por coma):</label>
+      <textarea id="videos_youtube" name="videos_youtube" rows="2" placeholder="https://youtu.be/... , https://youtu.be/..."></textarea>
+
+      <label for="imagenes">Subí hasta 3 imágenes (JPG o PNG, 400x500px recomendado):</label>
+      <input type="file" id="imagenes" name="imagenes" accept="image/jpeg,image/png" multiple required>
+
+      <p class="instrucciones">
+        Formatos permitidos: JPG, PNG | Máx. por archivo: 3MB | Tamaño sugerido: 400px x 500px
+      </p>
+
+<!-- Redes sociales con control de visibilidad -->
+<div class="redes-sociales">
+  <h3>Redes Sociales que si deseas se pueden mostrar</h3>
+
+
+<div class="red-item">
+  <label for="instagram">Instagram:</label>
+  <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/tu_usuario">
+  
+  <label class="mostrar-inline">
+    Mostrar
+    <input type="checkbox" id="mostrar_instagram" name="mostrar_instagram">
+  </label>
+</div>
+
+
+
+<div class="red-item">
+  <label for="instagram">Facebook:</label>
+  <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/...">
+  
+  <label class="mostrar-inline">
+    Mostrar
+    <input type="checkbox" id="mostrar_facebook" name="mostrar_facebook">
+  </label>
+</div>
+
+
+  <div class="red-item">
+    <label for="youtube">YouTube:</label>
+    <input type="url" id="youtube" name="youtube" placeholder="https://youtube.com/...">
+     <label class="mostrar-inline">
+      <input type="checkbox" id="mostrar_youtube" name="mostrar_youtube"> Mostrar
+    </label>
+  </div>
+
+  <div class="red-item">
+    <label for="web">Pág. web:</label>
+    <input type="url" id="web" name="web" placeholder="https://...">
+     <label class="mostrar-inline">
+      <input type="checkbox" id="mostrar_web" name="mostrar_web"> Mostrar
+    </label>
+  </div>
+
+  <div class="red-item">
+  <label for="whatsapp">WhatsApp:</label>
+  <input type="tel" id="whatsapp" name="whatsapp" placeholder="+549..." >
+
+  <label class="mostrar-inline">
+     <input type="checkbox" id="mostrar_whatsapp" name="mostrar_whatsapp"> Mostrar
+    
+  </label>
+</div>
+
+
+  <div class="red-item">
+  <label for="tikTok">Tik Tok:</label>
+  <input type="tel" id="tikTok" name="tikTok" placeholder="https://www.tiktok.com/@..." >
+
+  <label class="mostrar-inline">
+     <input type="checkbox" id="mostrar_tiktok" name="mostrar_tictok"> Mostrar
+    
+  </label>
+</div>
+
+</div>
+
+
+
+      <button type="submit" class="boton-buscar">Enviar Registro</button>
+
+
+    </form>
+
+  </main>
+
+  <script>
+    // Mostrar campo artista imitado solo si selecciona "Sí"
+    document.getElementById('imitaciones').addEventListener('change', function () {
+      const label = document.getElementById('label_imitado');
+      const input = document.getElementById('artista_imitado');
+      if (this.value === 'Sí') {
+        label.style.display = 'block';
+        input.style.display = 'block';
+        input.required = true;
+      } else {
+        label.style.display = 'none';
+        input.style.display = 'none';
+        input.required = false;
+      }
+    });
+
+    document.getElementById('formRegistro').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // En esta parte iría la lógica para enviar los datos (a archivo JSON, servidor, correo, etc.)
+      alert('Gracias por registrarte. Te llegará un PIN por WhatsApp y correo para poder editar tu perfil.');
+
+      this.reset();
+      document.getElementById('label_imitado').style.display = 'none';
+      document.getElementById('artista_imitado').style.display = 'none';
+    });
+  </script>
+<!-- Script para marcar/desmarcar todos -->
+<script>
+document.getElementById('estilo_todos').addEventListener('change', function() {
+  const todosMarcados = this.checked;
+  const checkboxes = document.querySelectorAll('.genero');
+  checkboxes.forEach(function(checkbox) {
+    checkbox.checked = todosMarcados;
+  });
+});
+</script>
+ 
+<script>
+  const generoCheckboxes = document.querySelectorAll('.genero');
+  generoCheckboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+      const todos = document.getElementById('estilo_todos');
+      if (!this.checked) {
+        todos.checked = false;
+      } else {
+        const allChecked = Array.from(generoCheckboxes).every(cb => cb.checked);
+        todos.checked = allChecked;
+      }
+    });
+  });
+</script>
+
+<script>
+  // Mostrar el input si se elige "Depende"
+  document.querySelectorAll('input[name="ad_honorem"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      const dependeBox = document.getElementById('depende_explicacion');
+      if (this.value === 'Depende') {
+        dependeBox.style.display = 'block';
+      } else {
+        dependeBox.style.display = 'none';
+        document.getElementById('texto_depende').value = '';
+      }
+    });
+  });
+</script>
+
+<script>
+function obtenerRedesVisibles() {
+  const redes = ['instagram', 'facebook', 'youtube', 'web', 'whatsapp', 'tikTok'];
+  const datosVisibles = {};
+
+  redes.forEach(red => {
+    const checkbox = document.getElementById(`mostrar_${red}`);
+    const input = document.getElementById(red);
+
+    if (checkbox && checkbox.checked && input && input.value.trim() !== '') {
+      datosVisibles[red] = input.value.trim();
+    }
+  });
+
+  // Mostramos los datos visibles en consola
+  console.log("Redes seleccionadas para mostrar:", datosVisibles);
+
+  // También podés mostrarlas en pantalla si querés:
+  const resultado = document.getElementById("resultado_redes");
+  resultado.innerHTML = "";
+
+  for (let red in datosVisibles) {
+    const enlace = document.createElement("a");
+    enlace.href = datosVisibles[red];
+    enlace.textContent = red.charAt(0).toUpperCase() + red.slice(1);
+    enlace.target = "_blank";
+    resultado.appendChild(enlace);
+    resultado.appendChild(document.createElement("br"));
+  }
+}
+</script>
+
+
+</body>
+</html>

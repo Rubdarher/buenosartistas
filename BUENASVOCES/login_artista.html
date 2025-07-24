@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Artista</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f7f7f7;
+    }
+
+    .login-container {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    input, button {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container">
+  <h1>Iniciar sesión como Artista</h1>
+
+  <form id="form-login">
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" required>
+
+    <label for="pin">PIN de acceso:</label>
+    <input type="text" id="pin" required>
+
+    <div id="mensaje" class="error"></div>
+
+    <button type="submit">Iniciar sesión</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById("form-login").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const pin = document.getElementById("pin").value.trim();
+
+    try {
+      const res = await fetch("datos_artistas.json");
+      if (!res.ok) throw new Error("No se pudo cargar datos_artistas.json");
+
+      const artistas = await res.json();
+      const artista = artistas.find(a => a.correo === email && a.pin === pin);
+
+      const msg = document.getElementById("mensaje");
+      if (artista) {
+        msg.innerHTML = `🎤 ¡Bienvenido/a <strong>${artista.nombre_artistico}</strong>!`;
+        msg.style.color = "green";
+        // Redirigir después de 1 segundo
+        setTimeout(() => {
+           // Guardar artista en sessionStorage
+          sessionStorage.setItem('artista_edit', JSON.stringify(artista));
+
+          // Redireccionar inmediatamente
+          window.location.href = "index.html";  // Cambia el nombre si querés otra página
+        }, 1000);
+      } else {
+        msg.innerHTML = "❌ Correo o PIN incorrecto.";
+        msg.style.color = "red";
+      }
+    } catch (err) {
+      console.error(err);
+      document.getElementById("mensaje").innerHTML = "⚠️ Error al cargar los datos.";
+    }
+  });
+</script>
+
+
+
+
+</body>
+</html>

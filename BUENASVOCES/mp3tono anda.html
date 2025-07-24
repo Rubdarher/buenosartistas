@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editor de Tono y Recorte MP3</title>
+  <link rel="stylesheet" href="estilomp3.css" />
+  
+  <!-- <link rel="stylesheet" href="estilos.css" /> -->
+  <style>
+    #waveform {
+      width: 100%;
+      height: 120px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(185, 173, 173, 0.05);
+    }
+
+    .boton {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #2f859b;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin: 6px 4px;
+    }
+
+    .boton:hover {
+      background-color: #004a99;
+    }
+
+    select, input[type="range"] {
+      margin-left: 8px;
+    }
+
+    .bloque label {
+      font-weight: 600;
+    }
+
+    .bloque input[type="file"] {
+      margin-top: 6px;
+    }
+
+    #valorPitch {
+      font-weight: 700;
+      color: #0b3d91;
+    }
+  </style>
+</head>
+<body>z|
+  <div class="encabezado">
+    <div class="titulo">🎧Editor de MP3 T&F</div>
+    <div class="sponsors-principales">
+      <img src="img/sponsor1B.png" alt="Sponsor 1">
+      <img src="img/sponsor1A.png" alt="Sponsor 2">
+    </div>
+  </div>
+
+  <div class="contenedor">
+    <!-- Columna izquierda -->
+    <div class="columna">
+      <div class="bloque">
+        <label for="archivo">📂 Seleccionar MP3:</label><br>
+        <input type="file" id="archivo" accept=".mp3">
+      </div>
+      <div class="bloque">
+        <label for="pitch">🎼 Ajustar tono (semitonos):</label><br>
+        <input type="range" id="pitch" min="-6" max="6" value="0">
+        <span id="valorPitch">0</span>
+      </div>
+     
+      <div class="bloque">
+        <button class="boton" id="playPreview">▶️ Reproducir</button>
+        <button class="boton" id="stopPreview">⏹️ Stop</button>
+        <button class="boton" id="descargarTodo">⬇️ Descargar Todo</button>
+      </div>
+    </div>
+
+    <!-- Columna derecha (forma de onda) -->
+ 
+<div class="columna">
+  <div id="waveform"></div>
+ <div class="bloque">
+        <label for="calidad">💾 Calidad de exportación:</label><br>
+        <select id="calidad">
+          <option value="96k">96 kbps</option>
+          <option value="128k" selected>128 kbps</option>
+          <option value="256k">256 kbps</option>
+        </select>
+      </div>
+  <div class="bloque" style="font-size: 0.9rem; color: #1a1010;">
+    🖱️ Seleccioná el fragmento arrastrando en la forma de onda.
+  </div>
+
+  <div class="controles-recorte">
+   
+    <button class="boton" id="activarRecorte">✂️ Recortar fragmento</button>
+
+    <div id="controlesRecorte" style="display: none; margin-top: 10px; padding-left: 20px;">
+      <button class="boton" id="seleccionarInicio">🔹 Marcar inicio</button>
+      <button class="boton" id="seleccionarFin">🔸 Marcar fin</button>
+      <button class="boton" id="descargarRecorte">✂️ Descargar Recorte</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Columna   (sponsors o info) -->
+     
+      <div class="bloque ranking">
+        <div>🔥 Más usados para</div>
+        <ol>
+       
+          <li>Recortes de karaoke</li>
+         
+        </ol> 
+      </div>
+      <img src="sponsor3.png" alt="Sponsor 3">
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+  <script src="https://unpkg.com/wavesurfer.js/dist/plugin/wavesurfer.regions.min.js"></script>
+   <script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+   <script src="https://unpkg.com/wavesurfer.js@7/dist/plugins/pitch-shift.min.js"></script>
+
+  <script>
+    const input = document.getElementById('archivo');
+    const pitchInput = document.getElementById('pitch');
+    const valorPitch = document.getElementById('valorPitch');
+     
+    const playPreview = document.getElementById('playPreview');
+    let wavesurfer;
+    let pitchPlugin;
+    valorPitch.textContent = pitchInput.value;
+
+
+    pitchInput.addEventListener("input", () => {
+  valorPitch.textContent = pitchInput.value;
+  if (wavesurfer) {
+    const plugin = wavesurfer.getActivePlugins().pitchShift;
+    if (plugin) plugin.setPitch(parseInt(pitchInput.value));
+  }
+    });
+
+
+    input.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const url = URL.createObjectURL(file);
+
+      if (wavesurfer) {
+        wavesurfer.destroy();
+      }
+
+      wavesurfer = WaveSurfer.create({
+        container: '#waveform',
+        waveColor: '#007acc', // Color bien visible
+        progressColor: '#00cc99',
+        backend: 'WebAudio',
+        height: 128,
+      
+
+        
+      });
+
+      wavesurfer.load(url);
+    });
+
+    playPreview.addEventListener("click", () => {
+      if (!wavesurfer) return;
+      const duration = wavesurfer.getDuration();
+      const start = Math.max(0, duration / 2 - 5); // Centro 10 segundos
+      const end = start + 10;
+      wavesurfer.play(start, end);
+    });
+
+    const stopPreview = document.getElementById('stopPreview');
+
+    stopPreview.addEventListener("click", () => {
+    if (!wavesurfer) return;
+    wavesurfer.stop();
+    });
+
+let inicioRecorte = null;
+let finRecorte = null;
+
+const btnDescargarTodo = document.getElementById("descargarTodo");
+const btnActivarRecorte = document.getElementById("activarRecorte");
+const controlesRecorte = document.getElementById("controlesRecorte");
+const btnInicio = document.getElementById("seleccionarInicio");
+const btnFin = document.getElementById("seleccionarFin");
+const btnDescargarRecorte = document.getElementById("descargarRecorte");
+
+// Mostrar controles de recorte
+btnActivarRecorte.addEventListener("click", () => {
+  controlesRecorte.style.display = "block";
+});
+
+
+// Seleccionar punto de inicio
+btnInicio.addEventListener("click", () => {
+  if (!wavesurfer) return;
+  inicioRecorte = wavesurfer.getCurrentTime();
+  alert(`🔹 Inicio marcado en: ${inicioRecorte.toFixed(2)}s`);
+});
+
+// Seleccionar punto de fin
+btnFin.addEventListener("click", () => {
+  if (!wavesurfer) return;
+  finRecorte = wavesurfer.getCurrentTime();
+  alert(`🔸 Fin marcado en: ${finRecorte.toFixed(2)}s`);
+});
+
+
+// Descargar toda la pista (solo descarga el archivo original por ahora)
+btnDescargarTodo.addEventListener("click", () => {
+  const file = input.files[0];
+  if (!file) {
+    alert("⚠️ No hay archivo cargado");
+    return;
+  }
+
+  if (!file) return;
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(file);
+  link.download = file.name;
+  link.click();
+
+});
+
+// Descargar recorte (solo avisa por ahora)
+btnDescargarRecorte.addEventListener("click", () => {
+  
+
+  if (inicioRecorte === null || finRecorte === null || !wavesurfer) {
+    alert("Seleccioná un inicio y un fin válidos");
+    return;
+  }
+
+  if (finRecorte <= inicioRecorte) {
+    alert("El final debe ser mayor que el inicio");
+    return;
+  }
+
+  alert(`Descargar fragmento desde ${inicioRecorte.toFixed(2)}s hasta ${finRecorte.toFixed(2)}s`);
+  
+  // 🧪 Aquí más adelante se puede implementar la descarga real del fragmento con Web Audio o backend
+});
+
+btnDescargarRecorte.addEventListener("click", async () => {
+  if (inicioRecorte === null || finRecorte === null || !wavesurfer) {
+    alert("Seleccioná un inicio y un fin válidos");
+    return;
+  }
+
+  if (finRecorte <= inicioRecorte) {
+    alert("El final debe ser mayor que el inicio");
+    return;
+  }
+
+  const { createFFmpeg, fetchFile } = FFmpeg;
+  const ffmpeg = createFFmpeg({ log: true });
+
+  const file = input.files[0];
+  if (!file) {
+    alert("No hay archivo cargado");
+    return;
+  }
+
+  const calidad = document.getElementById("calidad").value;
+
+  const nombreOriginal = file.name;
+  const nombreArchivo = "input.mp3";
+  const nombreSalida = "recorte.mp3";
+
+  // Cargar FFmpeg en el navegador
+  await ffmpeg.load();
+  ffmpeg.FS("writeFile", nombreArchivo, await fetchFile(file));
+
+  // Ejecutar FFmpeg para cortar
+  await ffmpeg.run(
+    "-i", nombreArchivo,
+    "-ss", inicioRecorte.toString(),
+    "-to", finRecorte.toString(),
+    "-b:a", calidad,
+    "-c", "copy",
+    nombreSalida
+  );
+
+  const data = ffmpeg.FS("readFile", nombreSalida);
+  const blob = new Blob([data.buffer], { type: "audio/mp3" });
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `Recorte-${nombreOriginal}`;
+  link.click();
+
+  alert("✅ Fragmento recortado y descargado.");
+});
+
+  </script>
+  
+  <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.11.8/dist/ffmpeg.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+[
+  {
+    "nombre_artistico": "Addele",
+    "nombres": "Adele",
+    "apellido": "Adkins",
+    "telefono": "+5491122334455",
+    "ciudad": "Londres",
+    "provincia": "Inglaterra",
+    "solista": true,
+    "usa_pista": true,
+    "tiene_sonido": true,
+    "estilos": ["Pop", "Soul", "Jazz", "Balada"],
+    "redes": {
+      "instagram": "https://instagram.com/adele",
+      "facebook": "https://facebook.com/adele",
+      "pagina": "https://adele.com"
+    },
+    "imagenes": {
+      "principal": "imgart/adde001.jpg",
+      "galeria": [
+        "imgart/adde001.jpg",
+        "imgart/adde002.jpg",
+        "imgart/adde003.jpg"
+      ]
+    },
+    "video_principal": "https://www.youtube.com/embed/DDWKuo3gXMQ",
+    "videos_extra": [],
+    "beneficios": ["Evento solidario", "Fundación"],
+    "imitaciones": { "realiza": false, "a_quien": "" },
+    "sponsors_tipo3": ["imgart/spon001.png", "imgart/spon002.png"],
+    "whatsapp": "+5491122334455",
+    "email": "adele@musica.com"
+  },
+
+  {
+    "nombre_artistico": "Madona",
+    "nombres": "Madonna",
+    "apellido": "Ciccone", 
+    "telefono": "+5491166778899",
+    "ciudad": "Detroit",
+    "provincia": "Michigan",
+    "solista": true,
+    "usa_pista": true,
+    "tiene_sonido": false,
+    "estilos": ["Pop", "Dance", "Electro", "Disco"],
+    "redes": {
+      "instagram": "https://instagram.com/madonna",
+      "facebook": "https://facebook.com/madonna",
+      "pagina": "https://madonna.com"
+    },
+    "imagenes": {
+      "principal": "imgart/mado001.jpg",
+      "galeria": [
+        "imgart/mado001.jpg",
+        "imgart/mado002.jpg",
+        "imgart/mado003.jpg"
+      ]
+    },
+    "video_principal": "https://www.youtube.com/embed/zf2VYAtqRe0",
+    "videos_extra": [],
+    "beneficios": ["Evento solidario"],
+    "imitaciones": { "realiza": true, "a_quien": "Marilyn Monroe" },
+    "sponsors_tipo3": ["imgart/spon003.png"],
+    "whatsapp": "+5491166778899",
+    "email": "madonna@musica.com"
+  },
+
+  {
+    "nombre_artistico": "Juan Pérez",
+    "nombres": "Juan Manuel",
+    "apellido": "Pérez",  
+    "telefono": "+5493871234567",
+    "ciudad": "Salta",
+    "provincia": "Salta",
+    "solista": false,
+    "usa_pista": false,
+    "tiene_sonido": true,
+    "estilos": ["Folklore", "Chamamé", "Zamba"],
+    "redes": {
+      "instagram": "https://instagram.com/juanperez",
+      "facebook": "https://facebook.com/juanperezfolklore",
+      "pagina": ""
+    },
+    "imagenes": {
+      "principal": "imgart/juan001.jpg",
+      "galeria": [
+        "imgart/juan001.jpg",
+        "imgart/juan002.jpg",
+        "imgart/juan003.jpg"
+      ]
+    },
+    "video_principal": "https://www.youtube.com/embed/abcd1234EFG",
+    "videos_extra": [],
+    "beneficios": ["Fundación"],
+    "imitaciones": { "realiza": false, "a_quien": "" },
+    "sponsors_tipo3": [],
+    "whatsapp": "",
+    "email": "juanperez@gmail.com"
+  },
+
+
+  {
+    "nombre_artistico": "Shakira",
+    "nombres": "Shakira Isabel",
+    "apellido": "Mebarak",    
+    "telefono": "+5491162345678",
+    "ciudad": "Barranquilla",
+    "provincia": "Atlántico",
+    "solista": true,
+    "usa_pista": true,
+    "tiene_sonido": true,
+    "estilos": ["Pop", "Rock", "Latino", "Todos"],
+    "redes": {
+      "instagram": "https://instagram.com/shakira",
+      "facebook": "https://facebook.com/shakira",
+      "pagina": "https://shakira.com"
+    },
+    "imagenes": {
+      "principal": "imgart/shak001.jpg",
+      "galeria": [
+        "imgart/shak001.jpg",
+        "imgart/shak002.jpg",
+        "imgart/shak003.jpg"
+      ]
+    },
+    "video_principal": "https://www.youtube.com/embed/7-2Rq8kZR_A",
+    "videos_extra": [],
+    "beneficios": ["Evento solidario", "Fundación", "Otros"],
+    "imitaciones": { "realiza": false, "a_quien": "" },
+    "sponsors_tipo3": ["imgart/spon004.png"],
+    "whatsapp": "+5491162345678",
+    "email": "shakira@musica.com"
+  },
+
+
+  {
+    "nombre_artistico": "Abel Pinto",
+    "nombres": "Abel",
+    "apellido": "Pinto",
+    "telefono": "+5491169876543",
+    "ciudad": "Córdoba",
+    "provincia": "Córdoba",
+    "solista": true,
+    "usa_pista": false,
+    "tiene_sonido": true,
+    "estilos": ["Folklore", "Chamamé", "Todos"],
+    "redes": {
+      "instagram": "https://instagram.com/abelpinto",
+      "facebook": "https://facebook.com/abelpinto",
+      "pagina": "https://abelpinto.com"
+    },
+    "imagenes": {
+      "principal": "imgart/abel001.jpg",
+      "galeria": [
+        "imgart/abel001.jpg",
+        "imgart/abel002.jpg",
+        "imgart/abel003.jpg"
+      ]
+    },
+    "video_principal": "https://youtu.be/oBofuVYDoG4",
+    "videos_extra": [],
+    "beneficios": ["Fundación"],
+    "imitaciones": { "realiza": false, "a_quien": "" },
+    "sponsors_tipo3": [],
+    "whatsapp": "+5491169876543",
+    "email": "abelpinto@musica.com"
+  }
+]

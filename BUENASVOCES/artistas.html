@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Perfil del Artista</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 10px;
+      background: #f7f7f7;
+      color: #333;
+    }
+    h1 {
+      color: #0066cc;
+      margin-bottom: 10px;
+    }
+    .datos-artista, .contacto, .sponsors, .videos, .galeria {
+      background: white;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 5px #ccc;
+    }
+    .datos-artista p {
+      margin: 5px 0;
+    }
+    .beneficios, .estilos, .imitaciones {
+      margin-left: 20px;
+    }
+    .galeria img, .sponsors img {
+      max-width: 120px;
+      margin: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .galeria img:hover, .sponsors img:hover {
+      transform: scale(1.05);
+    }
+    .imagen-principal {
+      max-width: 250px;
+      display: block;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+    .contacto a {
+      display: inline-block;
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: bold;
+    }
+    .contacto a:hover {
+      text-decoration: underline;
+    }
+    iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
+      border-radius: 6px;
+    }
+    .videos iframe {
+      height: 200px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="nombre_artistico">Cargando...</h1>
+
+  <div class="datos-artista">
+    <img id="imagen_principal" class="imagen-principal" src="" alt="Imagen principal del artista" />
+    <p><strong>Trayectoria:</strong> <span id="trayectoria"></span></p>
+    <p><strong>Año de inicio:</strong> <span id="anio_inicio"></span></p>
+    <p><strong>Nombre real:</strong> <span id="nombre_real"></span></p>
+    <p><strong>Ciudad:</strong> <span id="ciudad"></span>, <span id="provincia"></span></p>
+    <p><strong>Solista:</strong> <span id="solista"></span></p>
+    <p><strong>Usa pista:</strong> <span id="usa_pista"></span></p>
+    <p><strong>Tiene sonido propio:</strong> <span id="tiene_sonido"></span></p>
+
+    <p><strong>Beneficios:</strong></p>
+    <ul id="beneficios" class="beneficios"></ul>
+
+    <p><strong>Estilos:</strong></p>
+    <ul id="estilos" class="estilos"></ul>
+
+    <div id="imitaciones" class="imitaciones"></div>
+  </div>
+
+  <div class="galeria" id="galeria_imagenes">
+    <h3>Galería</h3>
+    <!-- Imágenes de galería se insertan aquí -->
+  </div>
+
+  <div class="videos">
+    <h3>Video Principal</h3>
+    <iframe id="video_principal" src="" allowfullscreen></iframe>
+
+    <h3>Videos Extra</h3>
+    <div id="videos_extra"></div>
+  </div>
+
+  <div class="sponsors" id="sponsors_tipo3">
+    <h3>Sponsors</h3>
+    <!-- Sponsors tipo 3 aquí -->
+  </div>
+
+  <div class="contacto">
+    <h3>Contacto</h3>
+    <a id="link-whatsapp" href="#" target="_blank" rel="noopener" title="Enviar WhatsApp">
+      📱 WhatsApp
+    </a>
+    <a id="link-email" href="#" target="_blank" rel="noopener" title="Enviar correo electrónico">
+      📧 Email
+    </a>
+  </div>
+
+<script>
+  // Función para obtener parámetro URL
+  function getParametro(nombre) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(nombre);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const artistaNombre = getParametro("nombre");
+    if (!artistaNombre) {
+      document.body.innerHTML = "<p>No se encontró el artista solicitado.</p>";
+      return;
+    }
+
+    fetch("artistas.json")
+      .then(res => res.json())
+      .then(datos => {
+        // Buscar artista por nombre (case insensitive)
+        const artista = datos.find(a => a.nombre_artistico.toLowerCase() === artistaNombre.toLowerCase());
+
+        if (!artista) {
+          document.body.innerHTML = "<p>Artista no encontrado.</p>";
+          return;
+        }
+
+        // Mostrar datos básicos
+        document.getElementById("nombre_artistico").textContent = artista.nombre_artistico;
+        document.getElementById("trayectoria").textContent = artista.trayectoria;
+        document.getElementById("anio_inicio").textContent = artista.anio_inicio;
+        document.getElementById("imagen_principal").src = artista.imagenes.principal;
+        document.getElementById("imagen_principal").alt = "Imagen principal de " + artista.nombre_artistico;
+
+        // Beneficios
+        const ulBenef = document.getElementById("beneficios");
+        ulBenef.innerHTML = "";
+        artista.beneficios.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          ulBenef.appendChild(li);
+        });
+
+        // Estilos
+        const ulEstilos = document.getElementById("estilos");
+        ulEstilos.innerHTML = "";
+        artista.estilos.forEach(est => {
+          const li = document.createElement("li");
+          li.textContent = est;
+          ulEstilos.appendChild(li);
+        });
+
+        // Imitaciones
+        const imit = artista.imitaciones;
+        const divImit = document.getElementById("imitaciones");
+        if (imit.realiza) {
+          divImit.innerHTML = `<p><strong>Imita a:</strong> ${imit.a_quien}</p>`;
+        } else {
+          divImit.innerHTML = "";
+        }
+
+        // Galería
+        const galeria = document.getElementById("galeria_imagenes");
+        galeria.innerHTML = "<h3>Galería</h3>"; // título ya incluido arriba, pero por si se recarga
+        artista.imagenes.galeria.forEach(img => {
+          const imgTag = document.createElement("img");
+          imgTag.src = img;
+          imgTag.alt = "Imagen adicional de " + artista.nombre_artistico;
+          galeria.appendChild(imgTag);
+        });
+
+        // Video principal
+        document.getElementById("video_principal").src = artista.video_principal;
+
+        // Videos extra
+        const divVideos = document.getElementById("videos_extra");
+        divVideos.innerHTML = "";
+        artista.videos_extra.forEach(video => {
+          const iframe = document.createElement("iframe");
+          iframe.src = video;
+          iframe.allowFullscreen = true;
+          divVideos.appendChild(iframe);
+        });
+
+        // Sponsors tipo 3
+        const divSponsors = document.getElementById("sponsors_tipo3");
+        divSponsors.innerHTML = "<h3>Sponsors</h3>";
+        if (artista.sponsors_tipo3 && artista.sponsors_tipo3.length > 0) {
+          artista.sponsors_tipo3.forEach(sponsorImg => {
+            const img = document.createElement("img");
+            img.src = sponsorImg;
+            img.alt = "Sponsor de " + artista.nombre_artistico;
+            divSponsors.appendChild(img);
+          });
+        } else {
+          divSponsors.innerHTML += "<p>No hay sponsors para este artista.</p>";
+        }
+
+        // Contacto WhatsApp
+        const linkWhatsApp = document.getElementById("link-whatsapp");
+        if (artista.whatsapp) {
+          // Formato para link wa.me, quitar + y espacios, dejar solo números
+          const waNum = artista.whatsapp.replace(/[^0-9]/g, '');
+          linkWhatsApp.href = "https://wa.me/" + waNum;
+          linkWhatsApp.style.display = "inline-block";
+        } else {
+          linkWhatsApp.style.display = "none";
+        }
+
+        // Contacto Email
+        const linkEmail = document.getElementById("link-email");
+        if (artista.email) {
+          linkEmail.href = "mailto:" + artista.email;
+          linkEmail.style.display = "inline-block";
+        } else {
+          linkEmail.style.display = "none";
+        }
+      })
+      .catch(err => {
+        console.error("Error cargando artista:", err);
+        document.body.innerHTML = "<p>Error al cargar el perfil del artista.</p>";
+      });
+  });
+</script>
+
+</body>
+</html>

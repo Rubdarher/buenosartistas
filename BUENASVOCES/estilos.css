@@ -1,0 +1,593 @@
+/* === Reset básico === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* === Contenedor principal 3 columnas === */
+.contenedor {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === Columnas === */
+.columna {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.05);
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* === Encabezado general === */
+.encabezado {
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titulo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 1.1px;
+  user-select: none;
+}
+
+/* === Sponsors principales === */
+.sponsors-principales img {
+  width: 80px;
+  height: 80px;
+  margin-left: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.sponsors-principales img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 4px rgba(0, 102, 204, 0.6));
+}
+
+/* === Bloques dentro columnas === */
+.bloque {
+  margin-bottom: 24px;
+  font-size: 1rem;
+  color: #444;
+}
+
+.bloque:last-child {
+  margin-bottom: 0;
+}
+
+/* === Sponsor secundario imagen === */
+.sponsor-secundario img {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+  border-radius: 8px;
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.sponsor-secundario img:hover {
+  filter: drop-shadow(0 0 6px rgba(0, 102, 204, 0.8));
+}
+
+/* === Iframe YouTube === */
+iframe {
+  width: 100%;
+  height: 230px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgb(0 0 0 / 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+iframe:hover {
+  box-shadow: 0 5px 20px rgb(0 0 0 / 0.15);
+}
+
+/* === Ranking === */
+.ranking {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #0b3d91;
+  user-select: none;
+}
+
+.ranking ol {
+  margin-top: 10px;
+  padding-left: 20px;
+  color: #555;
+  font-weight: 500;
+}
+
+.ranking ol li {
+  margin-bottom: 8px;
+  cursor: default;
+  transition: color 0.3s ease;
+}
+
+.ranking ol li:hover {
+  color: #0066cc;
+  font-weight: 700;
+}
+
+/* === Enlaces === */
+a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+a:hover,
+a:focus {
+  color: #004a99;
+  text-decoration: underline;
+}
+
+/* === Responsive: vista en filas (pantallas pequeñas) === */
+@media (max-width: 900px) {
+  .contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  .columna {
+    min-height: auto;
+  }
+
+  .encabezado {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .sponsors-principales img {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+
+/* === Campo de texto de búsqueda (oscuro moderno) === */
+.input-busqueda {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #444;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 1.05rem;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-busqueda::placeholder {
+  color: #aaa;
+}
+
+.input-busqueda:focus {
+  border-color: #00bfff;
+  box-shadow: 0 0 12px #00bfff88;
+  outline: none;
+}
+
+/* === Botón de búsqueda moderno === */
+.boton-buscar {
+  background: linear-gradient(to right, #0033cc, #0066ff);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 102, 255, 0.3);
+  width: 100%;
+  max-width: 100%;
+}
+
+.boton-buscar:hover {
+  background: linear-gradient(to right, #0055ff, #00aaff);
+  box-shadow: 0 0 15px #00aaff;
+  transform: scale(1.04);
+}
+
+.registro-artista a:hover div {
+  color: #004a99;
+  text-decoration: underline;
+}
+
+.registro-artista img {
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.registro-artista a:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #00aaff88;
+}
+
+
+/* Contenedor general del formulario */
+.contenedor-registro {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Título */
+.contenedor-registro h1 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 30px;
+  color: #004a99;
+  user-select: none;
+}
+
+/* Formulario - estilos generales */
+form#formRegistro {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Labels */
+form#formRegistro label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  display: block;
+  color: #222;
+}
+
+/* Inputs, textarea y select */
+form#formRegistro input,
+form#formRegistro textarea,
+form#formRegistro select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form#formRegistro input:focus,
+form#formRegistro textarea:focus,
+form#formRegistro select:focus {
+  border-color: #007acc;
+  box-shadow: 0 0 8px #007acc88;
+  outline: none;
+}
+
+/* Textarea altura fija para trayectoria y videos */
+form#formRegistro textarea {
+  min-height: 80px;
+}
+
+/* Checkbox group (géneros, beneficios) */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 6px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 6px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+/* Select */
+select {
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: #f8fbff;
+  transition: border 0.3s;
+}
+
+select:focus {
+  border-color: #007acc;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 102, 255, 0.3);
+}
+
+/* Cuadro para subida de imágenes */
+#imagenes {
+  border: 2px dashed #007acc;
+  padding: 24px;
+  border-radius: 16px;
+  background: linear-gradient(to top left, #f0faff, #ffffff);
+  font-size: 1rem;
+  color: #004a99;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.3s;
+}
+
+#imagenes:hover {
+  background: #e6f3ff;
+  transform: scale(1.02);
+}
+
+/* Botón para seleccionar archivo */
+#imagenes::file-selector-button {
+  border: none;
+  background: linear-gradient(to right, #007acc, #005ea3);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+#imagenes::file-selector-button:hover {
+  background: linear-gradient(to right, #005ea3, #003f7d);
+  transform: scale(1.05);
+}
+
+/* Instrucciones debajo del input file */
+#imagenes + .instrucciones {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+
+/* Lista de sugerencias */
+.sugerencias-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 300px;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sugerencias-lista li {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.sugerencias-lista li:hover {
+  background-color: #f0f8ff;
+}
+
+/* Responsive - móviles y tablets */
+@media (max-width: 768px) {
+  .contenedor-banner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sponsors {
+    flex-direction: row;
+    max-height: none;
+  }
+
+  .sponsors img {
+    height: auto;
+    width: 45%;
+  }
+}
+
+.contenedor-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+/* Banner contenedor */
+.banner-wrapper {
+  flex-shrink: 0;
+  width: 70vw;
+  max-width: 862px;
+}
+
+/* Imagen del banner */
+#bannerImg {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: cover;
+}
+
+/* Sponsors a la derecha */
+.sponsors {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10px;
+  height: auto;
+  max-height: 280px;
+}
+
+.sponsors img {
+  height: calc(50% - 5px);
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+}
+
+/* VISTA CELULAR */
+@media (max-width: 768px) {
+  .contenedor-banner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-wrapper {
+    width: 100vw;
+    max-width: 100%;
+  }
+
+  #bannerImg {
+    width: 100%;
+    max-height: none;
+  }
+
+  .sponsors {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 0 0;
+    max-height: none;
+    gap: 10px;
+  }
+
+  .sponsors img {
+    height: auto;
+    width: 40vw;
+    max-width: 120px;
+  }
+}
+
+.texto-todos {
+  color: #007BFF;  /* azul profesional */
+  font-weight: bold;
+}
+
+/* azul profesional de botones iniciar o editar dato artista */
+.bloque.registro-artista {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.bloque.registro-artista button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-weight: bold;
+  background-color: #2e6da4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 90%;
+  max-width: 200px;
+}
+
+.bloque.registro-artista button:hover {
+  background-color: #204d74;
+}
+
+.bloque.registro-artista button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+
+
+
+
+/* en registrando.html VISTA REDES SOCIALES */
+ 
+.red-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;       /* espacio horizontal entre elementos */
+  margin-bottom: 12px;
+}
+
+.red-item label[for] {
+  width: 100px;    /* ancho fijo para etiqueta */
+  flex-shrink: 0;
+}
+
+.red-item input[type="tel"],
+.red-item input[type="url"],
+.red-item input[type="text"] {
+  flex-grow: 1;
+  padding: 8px 12px;
+  font-size: 1rem;
+}
+
+.mostrar-publico {
+  display: flex;
+  align-items: left;
+  gap: 6px;       /* espacio entre checkbox y texto */
+  white-space: nowrap; /* evita que se parta en dos líneas */
+  cursor: pointer;
+}
+
+/* de artistas */
+
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.tarjeta-artista {
+  width: 280px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.tarjeta-artista img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.tarjeta-artista .redes a {
+  margin: 0 5px;
+  text-decoration: none;
+  color: #0077cc;
+}

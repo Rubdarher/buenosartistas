@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Buenas Voces Santiagueñas</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script defer src="js/buscador.js"></script>
+</head>
+<body>
+
+  <!-- Banner y sponsors -->
+  <div class="contenedor-banner">
+    <div class="banner-wrapper">
+      <img id="bannerImg" src="img/bannergif.gif" alt="Banner animado">
+    </div>
+    <div class="sponsors-principales">
+      <img src="img/sponsor1A.png" alt="Sponsor 1">
+      <img src="img/sponsor1B.png" alt="Sponsor 2">
+    </div>
+  </div>
+
+  <!-- Contenedor de 3 columnas -->
+  <main class="contenedor">
+
+    <!-- Columna izquierda -->
+    <section class="columna">
+      <div class="bloque">
+        <label for="filtro-estilos">Filtrar por estilo:</label>
+        <select id="filtro-estilos">
+          <option value="">Todos</option>
+          <option value="Tango">Tango</option>
+          <option value="Folclore">Folclore</option>
+          <option value="Rocknacional">Rock nacional</option>
+          <option value="Cumbia">Cumbia</option>
+          <option value="Cuarteto">Cuarteto</option>
+          <option value="Chamamé">Chamamé</option>
+          <option value="Génerosurbanos">Géneros urbanos</option>
+          <option value="Popmovidos">Pop movidos</option>
+          <option value="Internacionalsoft">Internacional soft</option>
+          <option value="Internacionalmovidos">Internacional movidos</option>
+          <option value="Melódicos">Melódicos</option>
+          <option value="Delrecuerdo">Del recuerdo</option>
+          <option value="Rancheras">Rancheras</option>
+          <option value="Bachata/Salsa">Bachata/Salsa</option>
+        </select>
+      </div>
+
+      <div class="bloque">
+        <label for="filtro-beneficios">¿Acepta ad honorem?</label>
+        <select id="filtro-beneficios">
+          <option value="">No especifica</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+          <option value="Depende">Depende</option>
+        </select>
+      </div>
+
+      <div class="bloque">
+        <label for="filtro-imitacion">¿Hace imitaciones?</label>
+        <select id="filtro-imitacion">
+          <option value="">No especifica</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div class="bloque">
+        <label for="input-busqueda">Buscar artista:</label>
+        <input type="text" id="input-busqueda" placeholder="Escribí un nombre..." class="input-busqueda">
+        <button id="boton-buscar" class="boton-buscar">Buscar</button>
+        <ul id="resultados-busqueda"></ul>
+      </div>
+
+      <div class="bloque">Sponsor t2</div>
+       
+      <div class="bloque"><a href="#">Cuadro para subir o bajar el tono a una pista mp3</a></div>
+    </section>
+
+    <!-- Columna centro -->
+    <section class="columna">
+      <div class="bloque">
+        <iframe src="https://www.youtube.com/embed/qA7RjWtbB2w" allowfullscreen></iframe>
+      </div>
+      <div class="bloque">Con el nombre del artista y lugar</div>
+      <div class="bloque"><strong>Sponsors t2</strong></div>
+      <div class="bloque sponsor-secundario">
+        <img src="img/sponsor2A.png" alt="Sponsor 2A">
+      </div>
+      <div class="bloque"><a href="#">Link de Entrevista o reseñas de comentarios positivos sobre los artistas</a></div>
+    </section>
+
+    <!-- Columna derecha -->
+    <aside class="columna">
+      <div class="ranking">
+        Ranking de los más solicitados
+        <ol>
+          <li>Artista 1</li>
+          <li>Artista 2</li>
+          <li>Artista 3</li>
+        </ol>
+      </div>
+      <div class="bloque sponsor-secundario">
+        <img src="img/sponsor2A.png" alt="Sponsor 2A">
+      </div>
+      
+  <div class="bloque registro-artista">
+  <a href="registrando.html" title="Si sos artista, registrate">
+    <img src="img/registro.gif" alt="¡Si sos artista, registrate así te conocemos!" />
+  </a>
+
+  <button onclick="location.href='login_artista.html'" class="btn-registro">
+    Iniciar sesión
+  </button>
+
+  <button id="btn-editar-artista" class="btn-registro" disabled>
+    Editar datos de artista
+  </button>
+</div>
+
+
+    </aside>
+
+  </main>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+  const btnEditar = document.getElementById("btn-editar-artista");
+  const artista = sessionStorage.getItem("artista_edit"); // la clave que usaste al guardar
+
+  if (artista && btnEditar) {
+    btnEditar.disabled = false;
+    btnEditar.title = "";
+    btnEditar.addEventListener("click", () => {
+      location.href = "editar_artista.html";
+    });
+  } else if (btnEditar) {
+    btnEditar.disabled = true;
+    btnEditar.title = "Debes iniciar sesión para editar tus datos";
+  }
+});
+
+</script>
+
+ 
+
+
+</body>
+</html>

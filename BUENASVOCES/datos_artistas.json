@@ -1,0 +1,38 @@
+[
+  {
+    "nombre_artistico": "Juan Pérez",
+     "nombres": "Shakira Isabel",
+     "apellido": "Adkins",
+    "correo": "juanpereza@musica.com",
+     "pin": "5678",
+    "telefono": "+5491122334455"
+  },
+  {
+    "nombre_artistico": "Abel Pinto",
+     "nombres": "Shakira Isabel",
+     "apellido": "Adkins",
+    "correo": "abelpintoa@musica.com",
+     "pin": "5678",
+    "telefono": "+5491122334455"
+  },
+
+  
+  {
+    "nombre_artistico": "Shakira",
+    "nombres": "Shakira Isabel",
+    "apellido": "Mebarak",
+    "correo": "shakira@musica.com",
+    "pin": "1234",
+    "telefono": "+5491162345678"
+  },
+
+  {
+    "nombre_artistico": "Adele",
+    "nombres": "Adele",
+    "apellido": "Adkins",
+    "correo": "adele@musica.com",
+    "pin": "5678",
+    "telefono": "+5491122334455"
+  }
+]
+
